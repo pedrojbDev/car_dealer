@@ -1,0 +1,30 @@
+{% extends "base.html" %} 
+{% block content %}
+  
+  <style>
+    h1{
+      text-align: center;
+    }
+    
+  </style>
+  <h1>LOGIN</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{ login_form.as_table }}
+    </table>
+    
+    <input type="submit"> 
+    
+  </form>
+  {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+{% endblock %}
